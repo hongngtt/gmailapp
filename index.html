@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login with Google</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <a href="/auth/google">Login with Google</a>
+  <script>
+    fetch('/profile-data')
+      .then(response => response.json())
+      .then(data => {
+        if (data.email) {
+          document.body.innerHTML = `<h1>Welcome, ${data.email}!</h1><a href="/auth/logout">Logout</a>`;
+        }
+      });
+  </script>
+</body>
+</html>
